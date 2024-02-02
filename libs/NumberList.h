@@ -92,9 +92,9 @@ NumberList getNumberListWithoutRepetitions(NumberList list) {
     return result;
 }
 
-NumberList getNumberListWithNumberOfRepetitions(NumberList list, NumberList listWithoutRepetitions) {
+NumberList getNumberListWithNumberOfRepetitions(NumberList list) {
     NumberList result;
-
+    NumberList listWithoutRepetitions = getNumberListWithoutRepetitions(list);
     for (int i = 0; i < listWithoutRepetitions.size; i++) {
         int repetitions = 0;
         for (int j = 0; j < list.size; j++) {

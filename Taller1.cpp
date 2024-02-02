@@ -10,7 +10,7 @@ void printNumberMatrix(NumberMatrix numberMatrix);
 void printMinimumValuesOfEachColumn(NumberMatrix numberMatrix);
 NumberList generateNumberListWithRandomNumbersAndPrintResult(int size, int min, int max);
 NumberList getNumberListWithoutRepetitionsAndPrintResult(NumberList numberList);
-NumberList getNumberListWithNumberOfRepetitionsAndPrintResult(NumberList numberList, NumberList listWithoutRepetitions);
+NumberList getNumberListWithNumberOfRepetitionsAndPrintResult(NumberList numberLists);
 NumberMatrix generateNumberMatrixWithRandomNumbersAndPrintResult(int rowSize, int columnSize, int min, int max);
 
 int main() {
@@ -43,12 +43,8 @@ int main() {
                 numberListWithoutRepetitions = getNumberListWithoutRepetitionsAndPrintResult(numberList);
                 break;
             case 3:
-                if (numberListWithoutRepetitions.size == 0) {
-                    cout << "Debe generar la lista de números sin repeticiones primero" << endl;
-                    break;
-                }
                 numberListWithNumberOfRepetitions = 
-                    getNumberListWithNumberOfRepetitionsAndPrintResult(numberList, numberListWithoutRepetitions); 
+                    getNumberListWithNumberOfRepetitionsAndPrintResult(numberList); 
                 break;
             case 4:
                 numberMatrix = generateNumberMatrixWithRandomNumbersAndPrintResult(5, 5, 1, 10);
@@ -120,8 +116,8 @@ NumberList getNumberListWithoutRepetitionsAndPrintResult(NumberList numberList) 
         i.e: 
             [2,2,3,3,2,2,2,2,1,1]*/
 
-NumberList getNumberListWithNumberOfRepetitionsAndPrintResult(NumberList numberList, NumberList listWithoutRepetitions) {
-    NumberList result = getNumberListWithNumberOfRepetitions(numberList, listWithoutRepetitions);
+NumberList getNumberListWithNumberOfRepetitionsAndPrintResult(NumberList numberList) {
+    NumberList result = getNumberListWithNumberOfRepetitions(numberList);
     cout << "Lista de números con el número de veces que aparece el número en la lista del punto 1: ";
     printNumberList(result);
     return result;

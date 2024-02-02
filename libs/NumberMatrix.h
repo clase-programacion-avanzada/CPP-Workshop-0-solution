@@ -120,11 +120,7 @@ struct NumberMatrix {
 NumberMatrix generateNumberMatrixWithRandomNumbers(int rows, int columns, int min, int max) {
     NumberMatrix result;
     for (int i = 0; i < rows; i++) {
-        NumberList row;
-        for (int j = 0; j < columns; j++) {
-            int number = rand() % (max - min + 1) + min;
-            row.add(number);
-        }
+        NumberList row = generateNumberListWithRandomNumbers(columns, min, max);
         result.addRow(row);
     }
     return result;
